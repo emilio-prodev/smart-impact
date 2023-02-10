@@ -1,6 +1,6 @@
 <template>
     <div class="app main-grid-container">
-        <main-header class="header" :header_data="header_data"></main-header>
+        <main-header class="header" :header_data="header_data" @searchUser="search_user"></main-header>
         <main-content class="main-content" :user_data="user_data"></main-content>
 		<main-footer class="footer" :footer_data="footer_data"></main-footer>
     </div>
@@ -23,24 +23,38 @@ export default {
 
 	data: () => ({
 		header_data: {
-			logo: 'Smart Impact | Emil Test',
-			search: ''
+			logo: 'Smart Impact | Emil Test'
 		},
 		user_data: [],
-		footer_data: 'Build by Emil for Smart Impact'
+		footer_data: 'Build by Emil for Smart Impact',
+		search: 'vsouza'
 	}),
 
 
 	methods: {
-      listar_gists() {
-        axios.get('https://api.github.com/users/rg3915/gists').then((result) => {
-            this.user_data = result.data.map((item) => {
-                return {
-					item: item
+		listar_gists() {
+			axios.get('https://api.github.com/users/' + this.search + '/gists')
+			.then((result) => {
+				this.user_data = result.data.map((item) => {
+					return {
+						item: item
+					}
+				});
+			})
+			.catch(function (error) {
+				if (error.response) {
+					console.log(error.response.data);
+					console.log(error.response.status);
+					console.log(error.response.headers);
 				}
-            });
-        });
-      }
+			});
+		},
+
+
+		search_user(search) {
+            this.search = search;
+			this.listar_gists(1);
+        }
     },
 
 

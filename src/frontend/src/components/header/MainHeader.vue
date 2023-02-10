@@ -1,7 +1,7 @@
 <template>
     <div class="header-content-grid-container">
         <logo-container class="logo-container" :logo="header_data.logo"></logo-container>
-        <search-bar class="search-box-container" :search_value="header_data.search"></search-bar>
+        <search-bar class="search-box-container" :search_value="header_data.search" @searchUser="search_user"></search-bar>
     </div>
 </template>
 
@@ -15,10 +15,22 @@ export default {
         SearchBar
     },
 
+
     props: {
         header_data: Object
     },
 
+
+    emits: [
+        'searchUser'
+    ],
+
+
+    methods: {
+        search_user(search) {
+            this.$emit('searchUser', search);
+        }
+    },
 
     data: () => ({
         show_profile_name_edit: false

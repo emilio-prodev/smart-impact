@@ -26,11 +26,11 @@ export default {
 
 <style>
 .side-bar { 
-	grid-area: side-bar; 
-    border-right: 1px solid hsl(0, 0%, 59%);
+	grid-area: side-bar;
 }
 .user-content { 
 	grid-area: user-content; 
+    border-left: 1px solid hsl(0, 0%, 59%);
 }
 
 .main-content-grid-container {
@@ -38,6 +38,5 @@ export default {
 	grid-template-areas:
 		'side-bar user-content user-content user-content';
 	gap: 10px;
-    align-items: center;
 }
 </style>

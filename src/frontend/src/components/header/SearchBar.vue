@@ -1,13 +1,25 @@
 <template>
     <div>
-        <input type="text" v-model="search" placeholder="Search..." />
+        <input type="text" v-model="search" placeholder="Search..." @keyup="search_user" />
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        search: String
+    data: () => ({
+		search: ''
+	}),
+
+
+    emits: [
+        'searchUser'
+    ],
+
+
+    methods: {
+        search_user() {
+            this.$emit('searchUser', this.search);
+        }
     }
 }
 </script>
