@@ -14,7 +14,7 @@
 
             <div class="gists-forks-data">
                 <span>Forked by: </span>
-                <span>{{ gists.item.forks_url }}</span>
+                <a :href="gists.item.forks_url" target="_blank">{{ gists.item.forks_url }}</a>
             </div>
         </div>
     </div>
@@ -29,7 +29,6 @@ export default {
     props: {
         user_data: Array
     }
-    
 }
 
 </script>
