@@ -1,7 +1,7 @@
 <template>
-    <section>
+    <div>
         {{ user_data }}
-    </section>
+    </div>
 </template>
 
 <script>

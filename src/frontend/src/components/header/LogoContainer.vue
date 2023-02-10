@@ -1,5 +1,5 @@
 <template>
-    <div>{{ header_data }}</div>
+    <div class="logo">{{ header_data }}</div>
 </template>
 
 <script>
@@ -9,3 +9,10 @@ export default {
     }
 }
 </script>
+
+
+<style>
+.logo {
+    padding: 4px;
+}
+</style>

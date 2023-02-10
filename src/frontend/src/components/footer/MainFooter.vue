@@ -1,23 +1,15 @@
 <template>
-    <footer>
+    <div>
         {{ footer_data }}
-    </footer>
+    </div>
 </template>
 
 <script>
 export default {
-    components: {
-        
-    },
-
     props: {
         footer_data: String
-    },
-
-
-    data: () => ({
-        
-    })
+    }
 }
 
 </script>
+

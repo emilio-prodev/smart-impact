@@ -1,7 +1,7 @@
 <template>
-    <section>
+    <div>
         {{ side_bar_data }}
-    </section>
+    </div>
 </template>
 
 <script>
