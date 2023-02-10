@@ -1,7 +1,7 @@
 <template>
     <div class="header-content-grid-container">
-        <logo-container class="logo-container" :header_data="header_data"></logo-container>
-        <search-bar class="search-box-container"></search-bar>
+        <logo-container class="logo-container" :logo="header_data.logo"></logo-container>
+        <search-bar class="search-box-container" :search_value="header_data.search"></search-bar>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     },
 
     props: {
-        header_data: String
+        header_data: Object
     },
 
 

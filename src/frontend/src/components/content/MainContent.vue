@@ -1,7 +1,7 @@
 <template>
     <div class="main-content-grid-container">
-        <side-bar class="side-bar" :side_bar_data="main_content_data.side_bar_data"></side-bar>
-        <user-content class="user-content" :user_data="main_content_data.user_data"></user-content>
+        <side-bar class="side-bar" :user_data="user_data"></side-bar>
+        <user-content class="user-content" :user_data="user_data"></user-content>
     </div>
 </template>
 
@@ -15,8 +15,9 @@ export default {
         UserContent
     },
 
+
     props: {
-        main_content_data: Object
+        user_data: Array
     }
 }
 
@@ -37,5 +38,6 @@ export default {
 	grid-template-areas:
 		'side-bar user-content user-content user-content';
 	gap: 10px;
+    align-items: center;
 }
 </style>

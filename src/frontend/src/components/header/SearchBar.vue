@@ -1,13 +1,13 @@
 <template>
     <div>
-        <input type="text" placeholder="Search" />
+        <input type="text" v-model="search" placeholder="Search..." />
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        
+        search: String
     }
 }
 </script>

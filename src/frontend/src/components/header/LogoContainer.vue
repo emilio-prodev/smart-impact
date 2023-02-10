@@ -1,11 +1,11 @@
 <template>
-    <div class="logo">{{ header_data }}</div>
+    <div class="logo">{{ logo }}</div>
 </template>
 
 <script>
 export default {
     props: {
-        header_data: String
+        logo: String
     }
 }
 </script>

@@ -1,13 +1,14 @@
 <template>
     <div class="app main-grid-container">
         <main-header class="header" :header_data="header_data"></main-header>
-        <main-content class="main-content" :main_content_data="main_content_data"></main-content>
+        <main-content class="main-content" :user_data="user_data"></main-content>
 		<main-footer class="footer" :footer_data="footer_data"></main-footer>
     </div>
 	
 </template>
 
 <script>
+import axios from 'axios';
 import MainHeader from './components/header/MainHeader';
 import MainContent from './components/content/MainContent';
 import MainFooter from './components/footer/MainFooter';
@@ -15,19 +16,37 @@ import MainFooter from './components/footer/MainFooter';
 export default {
 	components: {
         MainHeader,
-		
 		MainContent,
 		MainFooter
     },
 
+
 	data: () => ({
-		header_data: 'Smart Impact | Emil Test',
-		main_content_data: {
-			side_bar_data: 'Side Bar',
-			user_data: 'Content'
+		header_data: {
+			logo: 'Smart Impact | Emil Test',
+			search: ''
 		},
+		user_data: [],
 		footer_data: 'Build by Emil for Smart Impact'
-	})
+	}),
+
+
+	methods: {
+      listar_gists() {
+        axios.get('https://api.github.com/users/rg3915/gists').then((result) => {
+            this.user_data = result.data.map((item) => {
+                return {
+					item: item
+				}
+            });
+        });
+      }
+    },
+
+
+    mounted() {
+        this.listar_gists(1);
+    }
 }
 </script>
 
